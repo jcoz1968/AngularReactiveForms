@@ -14,8 +14,6 @@
               id="firstNameId"
               type="text"
               placeholder="First Name (required)"
-              required
-              minlength="3"
               formControlName="firstName"
               name="firstName"
               [ngClass]="{'is-invalid': (customerForm.get('firstName').touched || customerForm.get('firstName').dirty) && !customerForm.get('firstName').valid }" />
@@ -34,9 +32,9 @@
         <label class="col-md-2 col-form-label" for="lastNameId">Last Name</label>
         <div class="col-md-8">
           <input class="form-control"
-              id="lastNameId" type="text"
+              id="lastNameId"
+              type="text"
               placeholder="Last Name (required)"
-              required maxlength="50"
               name="lastName"
               formControlName="lastName"
               [ngClass]="{'is-invalid': (customerForm.get('lastName').touched || customerForm.get('lastName').dirty) && !customerForm.get('lastName').valid }" />
@@ -59,7 +57,6 @@
               type="email"
               placeholder="Email (required)"
               formControlName="email"
-              required email
               name="email"
               [ngClass]="{'is-invalid': (customerForm.get('email').touched || customerForm.get('email').dirty) && !customerForm.get('email').valid }" />
           <span class="invalid-feedback">
@@ -72,6 +69,47 @@
           </span>
         </div>
       </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label" for="phoneId">Phone</label>
+        <div class="col-md-8">
+          <input class="form-control"
+              id="phoneId"
+              type="tel"
+              placeholder="Phone"
+              formControlName="phone"
+              name="phone"
+              [ngClass]="{'is-invalid': !customerForm.get('phone').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="customerForm.get('phone').errors?.required">
+              Please enter your phone number.
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label pt-0">Send Notifications</label>
+        <div class="col-md-8">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input
+                  type="radio"
+                  class="form-check-input"
+                  value="email"
+                  formControlName="notification"
+                  (click)="setNotification('email')"> Email
+              <input
+                  type="radio"
+                  class="form-check-input"
+                  value="text"
+                  formControlName="notification"
+                  (click)="setNotification('text')"> Text
+            </label>
+          </div>
+        </div>
+      </div>
+
 
       <div class="form-group row mb-2">
         <div class="col-md-8">
