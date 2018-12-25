@@ -61,7 +61,7 @@
                    formControlName="email"
                    [ngClass]="{'is-invalid': emailMessage }" />
             <span class="invalid-feedback">
-              Please confirm your email address.
+              {{ emailMessage }}
             </span>
           </div>
         </div>
