@@ -61,7 +61,7 @@
                    formControlName="email"
                    [ngClass]="{'is-invalid': emailMessage }" />
             <span class="invalid-feedback">
-              Please confirm your email address.
+              {{ emailMessage }}
             </span>
           </div>
         </div>
@@ -118,14 +118,12 @@
                   type="radio"
                   class="form-check-input"
                   value="email"
-                  formControlName="notification"
-                  (click)="setNotification('email')"> Email
+                  formControlName="notification"> Email
               <input
                   type="radio"
                   class="form-check-input"
                   value="text"
-                  formControlName="notification"
-                  (click)="setNotification('text')"> Text
+                  formControlName="notification"> Text
             </label>
           </div>
         </div>
