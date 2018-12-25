@@ -77,6 +77,10 @@ export class CustomerComponent implements OnInit {
     console.log('Saved: ' + JSON.stringify(this.customerForm.value));
   }
 
+  addAddress(): void {
+    this.addresses.push(this.buildAddress());
+  }
+
   buildAddress(): FormGroup {
     return this.fb.group({
       addressType: 'home',
